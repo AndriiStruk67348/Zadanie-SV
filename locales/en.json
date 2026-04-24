@@ -50,5 +50,16 @@
   "project_card_1_name": "Clothing Store",
   "project_card_1_desc": "A full-featured <strong>online clothing store</strong> built as a university project. Includes a product catalog, shopping cart, and a <strong>MySQL database</strong> for managing inventory and orders. Developed from scratch with server-side PHP logic and a relational data structure.",
   "project_card_2_name": "Telegram Mini App",
-  "project_card_2_desc": "A <strong>single-page React application</strong> running inside Telegram. Built <strong>from scratch in 1.5 months</strong> together with a friend — full navigation, UI, and backend integration. Owned the entire frontend; gained hands-on understanding of server logic and MongoDB through close collaboration."
+  "project_card_2_desc": "A <strong>single-page React application</strong> running inside Telegram. Built <strong>from scratch in 1.5 months</strong> together with a friend — full navigation, UI, and backend integration. Owned the entire frontend; gained hands-on understanding of server logic and MongoDB through close collaboration.",
+  "write_to_me": "Write to me",
+  "first_name_label": "First Name",
+  "first_name_placeholder": "Enter your first name",
+  "last_name_label": "Last Name",
+  "last_name_placeholder": "Enter your last name",
+  "email_label": "Email",
+  "email_placeholder": "example@mail.com",
+  "message_label": "Message",
+  "message_placeholder": "How can I help you?",
+  "submit_button": "Send Message",
+  "success_message": "Message has been prepared correctly!"
 }

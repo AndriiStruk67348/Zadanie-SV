@@ -30,12 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(translations => {
         document.querySelectorAll("[data-i18n]").forEach(el => {
           const key = el.getAttribute("data-i18n");
-          el.innerHTML = translations[key] || key;
+          if (translations[key]) {
+            el.innerHTML = translations[key];
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          if (translations[key]) {
+            el.placeholder = translations[key];
+          }
         });
       })
       .catch(err => console.error("Error loading language file:", err));
   }
-
   loadLanguage('pl');
 });
 
@@ -45,22 +53,68 @@ const metaTheme = document.getElementById('meta-theme');
 const favicon = document.getElementById('favicon');
 
 checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-        theme.href = 'css/green.css';
-        metaTheme.setAttribute('content', '#242107');
-        favicon.href = 'img/Green_favicon.ico';
-    } else {
-        theme.href = 'css/red.css';
-        metaTheme.setAttribute('content', '#18161C');
-        favicon.href = 'img/Red_favicon.ico';
-    }
+  if (checkbox.checked) {
+    theme.href = 'css/green.css';
+    metaTheme.setAttribute('content', '#242107');
+    favicon.href = 'img/Green_favicon.ico';
+  } else {
+    theme.href = 'css/red.css';
+    metaTheme.setAttribute('content', '#18161C');
+    favicon.href = 'img/Red_favicon.ico';
+  }
 });
 
 const projectSection = document.querySelector('.projects');
 const toggleBtn = document.getElementById('toggle-projects');
 
 if (toggleBtn && projectSection) {
-    toggleBtn.addEventListener('click', () => {
-        projectSection.classList.toggle('collapsed');
-    });
+  toggleBtn.addEventListener('click', () => {
+    projectSection.classList.toggle('collapsed');
+  });
 }
+
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+  document.getElementById('success-msg').style.display = 'none';
+  let isValid = true;
+  const firstName = document.getElementById('first-name').value.trim();
+  const lastName = document.getElementById('last-name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!firstName) {
+    document.getElementById('first-name-error').textContent = 'Imię jest wymagane';
+    isValid = false;
+  } else if (/\d/.test(firstName)) {
+    document.getElementById('first-name-error').textContent = 'Imię nie może zawierać cyfr';
+    isValid = false;
+  }
+
+  if (!lastName) {
+    document.getElementById('last-name-error').textContent = 'Nazwisko jest wymagane';
+    isValid = false;
+  } else if (/\d/.test(lastName)) {
+    document.getElementById('last-name-error').textContent = 'Nazwisko nie może zawierać cyfr';
+    isValid = false;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email) {
+    document.getElementById('email-error').textContent = 'E-mail jest wymagany';
+    isValid = false;
+  } else if (!emailRegex.test(email)) {
+    document.getElementById('email-error').textContent = 'Wprowadź poprawny adres e-mail';
+    isValid = false;
+  }
+
+  if (!message) {
+    document.getElementById('message-error').textContent = 'Wiadomość nie może być pusta';
+    isValid = false;
+  }
+
+  if (isValid) {
+    document.getElementById('success-msg').style.display = 'block';
+  }
+});

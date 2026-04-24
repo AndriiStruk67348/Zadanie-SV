@@ -50,5 +50,16 @@
     "project_card_1_name": "Clothing Store",
     "project_card_1_desc": "W pełni funkcjonalny <strong>sklep internetowy z odzieżą</strong> stworzony jako projekt uczelniany. Zawiera katalog produktów, koszyk zakupowy oraz <strong>bazę danych MySQL</strong> do zarządzania stanem magazynowym i zamówieniami. Zbudowany od podstaw z logiką serwerową w PHP i relacyjną strukturą danych.",
     "project_card_2_name": "Telegram Mini App",
-    "project_card_2_desc": "<strong>Jednostronicowa aplikacja React</strong> działająca wewnątrz Telegrama. Zbudowana <strong>od zera w ciągu półtora miesiąca</strong> wspólnie z przyjacielem — pełna nawigacja, interfejs użytkownika i integracja z backendem. Odpowiadałem za cały frontend; dzięki bliskiej współpracy zdobyłem praktyczną wiedzę o logice serwerowej i MongoDB."
+    "project_card_2_desc": "<strong>Jednostronicowa aplikacja React</strong> działająca wewnątrz Telegrama. Zbudowana <strong>od zera w ciągu półtora miesiąca</strong> wspólnie z przyjacielem — pełna nawigacja, interfejs użytkownika i integracja z backendem. Odpowiadałem za cały frontend; dzięki bliskiej współpracy zdobyłem praktyczną wiedzę o logice serwerowej i MongoDB.",
+    "write_to_me": "Napisz do mnie",
+    "first_name_label": "Imię",
+    "first_name_placeholder": "Wpisz swoje imię",
+    "last_name_label": "Nazwisko",
+    "last_name_placeholder": "Wpisz swoje nazwisko",
+    "email_label": "E-mail",
+    "email_placeholder": "przyklad@poczta.pl",
+    "message_label": "Wiadomość",
+    "message_placeholder": "W czym mogę pomóc?",
+    "submit_button": "Wyślij wiadomość",
+    "success_message": "Wiadomość została przygotowana poprawnie!"
 }
