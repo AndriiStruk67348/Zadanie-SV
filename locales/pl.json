@@ -61,5 +61,6 @@
     "message_label": "Wiadomość",
     "message_placeholder": "W czym mogę pomóc?",
     "submit_button": "Wyślij wiadomość",
-    "success_message": "Wiadomość została przygotowana poprawnie!"
+    "success_message": "Wiadomość została przygotowana poprawnie!",
+    "switch_theme": "Zmień motyw"
 }

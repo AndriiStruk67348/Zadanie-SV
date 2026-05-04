@@ -61,5 +61,6 @@
   "message_label": "Message",
   "message_placeholder": "How can I help you?",
   "submit_button": "Send Message",
-  "success_message": "Message has been prepared correctly!"
+  "success_message": "Message has been prepared correctly!",
+  "switch_theme": "Switch Theme"
 }
