@@ -45,6 +45,53 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(err => console.error("Error loading language file:", err));
   }
   loadLanguage('pl');
+
+   // Notes
+  const noteInput = document.getElementById('note-input');
+  const addBtn = document.getElementById('add-note-btn');
+  const notesList = document.getElementById('notes-list');
+
+
+  const loadNotes = () => {
+    const savedNotes = JSON.parse(localStorage.getItem('myResumeNotes')) || [];
+    notesList.innerHTML = '';
+    savedNotes.forEach((noteText, index) => {
+      renderNote(noteText, index);
+    });
+  };
+
+  const renderNote = (text, index) => {
+    const li = document.createElement('li');
+    li.className = 'note-item';
+    li.innerHTML = `
+            <span>${text}</span>
+            <button class="delete-note-btn" onclick="deleteNote(${index})">Usuń</button>
+        `;
+    notesList.appendChild(li);
+  };
+
+  addBtn.addEventListener('click', () => {
+    const text = noteInput.value.trim();
+    if (text === '') return;
+
+    const savedNotes = JSON.parse(localStorage.getItem('myResumeNotes')) || [];
+    savedNotes.push(text);
+    localStorage.setItem('myResumeNotes', JSON.stringify(savedNotes));
+
+    noteInput.value = '';
+    loadNotes();
+  });
+
+
+  window.deleteNote = (index) => {
+    const savedNotes = JSON.parse(localStorage.getItem('myResumeNotes')) || [];
+    savedNotes.splice(index, 1);
+    localStorage.setItem('myResumeNotes', JSON.stringify(savedNotes));
+    loadNotes();
+  };
+
+
+  loadNotes();
 });
 
 const checkbox = document.querySelector('.switch input');
