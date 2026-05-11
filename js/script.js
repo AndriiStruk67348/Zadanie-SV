@@ -162,6 +162,44 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   }
 
   if (isValid) {
-    document.getElementById('success-msg').style.display = 'block';
-  }
+   
+    const SUBABASE_URL='https://lbjrbxzedekkgebrrgpa.supabase.co';
+    const SUPABASE_KEY='sb_publishable_M9zdDvY_EJv3b0AhQrcMjw_QlFNxM26';
+
+    const formData = {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        message: message
+    };
+
+    const submitBtn = e.target.querySelector('button');
+    submitBtn.disabled = true;
+
+    fetch(`${SUBABASE_URL}/rest/v1/messages`, {
+        method: 'POST',
+        headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById('success-msg').style.display = 'block';
+            e.target.reset();
+        } else {
+            throw new Error('Database error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error saving to database');
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+    });
+}
 });
